@@ -19,6 +19,7 @@ app.config['MYSQL_DB'] = os.getenv('MYSQL_DB')
 mysql = MySQL(app)
 bcrypt = Bcrypt(app)
 
+@app.route('/', methods=['GET', 'POST'])
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     if request.method == 'POST':
