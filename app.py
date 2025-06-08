@@ -19,8 +19,7 @@ app.config['MYSQL_DB'] = os.getenv('MYSQL_DB')
 mysql = MySQL(app)
 bcrypt = Bcrypt(app)
 
-@app.route('/', methods=['GET', 'POST'])
-
+@app.route('/signup', methods=['GET', 'POST'])
 def signup():
     if request.method == 'POST':
         username = request.form['username']
@@ -55,9 +54,6 @@ def login():
         else:
             return "Invalid username or password"    
     return render_template('/login.html')
-@app.route('/test')
-def test():
-    return "Test page works!"
 
 if __name__ == '__main__':
     app.run(debug=True)
